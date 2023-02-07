@@ -7,9 +7,30 @@
 </head>
 
 <body>
+
+    <div id="inputContainer">
+        <div>
+            <label>Максимальный радиус: </label>
+            <input id="radiusInput" type="number" value="200">
+        </div>
+        <div class="input">
+            <label>Точка 1. X: </label>
+            <input class="x_input" type="number" value="100">
+            <label>Y: </label>
+            <input class="y_input" type="number" value="100">
+        </div>
+    </div>
+
+    <div>
+        <button id="addButton">Добавить точку</button>
+    </div>
+
+    <div>
+        <button id="drawButton">Обновить диаграмму</button>
+    </div>
     
 
-    <canvas id="canvas" width="501" height="501" style="background-color:rgb(200, 200, 200);"></canvas>
+    <canvas id="canvas" width="501" height="501" style="background-color: white; border: 1px solid black;"></canvas>
 
     <script src="script.js"></script>
 </body>
