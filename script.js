@@ -76,7 +76,27 @@ let getStationPoints = () => {
 
     stationPoints.maxRadius = maxRadius
 
-    return stationPoints
+    let error = false
+
+    for (let j = 0; j <stationPoints.length; j++) {
+        for(let i = 1; i < stationPoints.length; i++) {
+            if (stationPoints[j].color == stationPoints[i].color) {
+                continue
+            }
+            let p1 = {x: stationPoints[j].x, y: stationPoints[j].y}
+            let p2 = {x: stationPoints[i].x, y: stationPoints[i].y}
+            if (getDistance(p1, p2) < 5) {
+                alert("Рассточние между станциями должно быть больше 5")
+                error = true
+                break
+            }
+        }
+        if (error) {
+            break
+        }
+    }
+
+    return (error)? []: stationPoints
 }
 
 
@@ -129,7 +149,7 @@ let getDistance = (point1, point2) => {
 // Ищем ближайшую станцию к точке
 
 let findClosestPoint = (point) => {
-    let closestPoint = {x: 0, y: 0, color: "black"}
+    let closestPoint = {x: 0, y: 0, color: "white"}
     let minDistance = 100000
 
     stationPoints.forEach((stationPoint) => {
